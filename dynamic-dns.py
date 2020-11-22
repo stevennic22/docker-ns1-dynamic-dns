@@ -36,11 +36,11 @@ def log_print(log_string):
 
 
 def main():
-    if os.path.isfile('/app/config.yml') is not True:
-        print('/app/config.yml does not exist or is not a file, exiting.')
+    if os.path.isfile('/app/config/config.yml') is not True:
+        print('/app/config/config.yml does not exist or is not a file, exiting.')
         exit(1)
 
-    config_file = yaml.load(open('/app/config.yml', 'r'))
+    config_file = yaml.load(open('/app/config/config.yml', 'r'))
 
     for domain in config_file:
         nsone_config = Config()

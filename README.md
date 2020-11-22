@@ -7,7 +7,7 @@ This updates DNS records in NS1 with the current IP (from [ipify.org](https://ww
 ### docker run
 ```
 docker run -d \
-    -v /your/config.yml:/config.yml:ro \
+    -v /your/config.yml:/app/config/config.yml:ro \
     --env FREQUENCY=5 \
     microbug/ns1-dynamic-dns:latest
 ```
@@ -20,7 +20,7 @@ services:
       - FREQUENCY=5
     image: microbug/ns1-dynamic-dns:latest
     volumes:
-      - /your/config.yml:/config.yml:ro
+      - /your/config.yml:/app/config/config.yml:ro
     restart: unless-stopped
 ```
 
@@ -31,7 +31,7 @@ You can change the value of the `FREQUENCY` environment variable to make the scr
 To test the script, run it through `docker run` and append `/dynamic-dns.py`. This will run the script once, then kill the container. Example:
 
 ```
-docker run --rm -v /your/config.yml:/config.yml:ro microbug/dynamic-dns:latest /dynamic-dns.py
+docker run --rm -v /your/config.yml:/app/config/config.yml:ro microbug/dynamic-dns:latest /dynamic-dns.py
 ```
 
 ## Config file
