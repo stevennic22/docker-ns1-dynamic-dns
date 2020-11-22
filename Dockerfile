@@ -11,3 +11,4 @@ ENV FREQUENCY=5
 
 COPY crontab /etc/crontabs/root
 CMD /app/prepare-crontab.sh && crond -f -d 8
+CMD /app/dynamic-dns.py
