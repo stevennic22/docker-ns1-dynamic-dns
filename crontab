@@ -1,1 +1,1 @@
-  */5 * * * * /dynamic-dns.py
+  */5 * * * * /app/dynamic-dns.py
