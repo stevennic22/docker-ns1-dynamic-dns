@@ -40,7 +40,7 @@ def main():
         print('/app/config/config.yml does not exist or is not a file, exiting.')
         exit(1)
 
-    config_file = yaml.load(open('/app/config/config.yml', 'r'))
+    config_file = yaml.safe_load(open('/app/config/config.yml', 'r'))
 
     for domain in config_file:
         nsone_config = Config()
