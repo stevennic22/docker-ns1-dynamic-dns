@@ -1,12 +1,26 @@
 example.com:
+  test: False
   api-key: YOUR_API_KEY
-  records-to-update:
-    - "example.com"
-    - "subdomain.example.com"
-    - "foo.example.com"
+  hosts:
+    - name: "host_name"
+      method: LinodeAPI
+      API_KEY: "YOUR_API_KEY"
+      HOST_KEY: "YOUR_HOST_KEY"
+      subdomains: 
+       - "@"
+    - name: "host_name2"
+      method: external
+      subdomains: 
+       - "subdomain"
+  allowed_countries:
+  - US
+  - 'NO'
 
 example.net:
+  test: True
   api-key: YOUR_API_KEY
-  records-to-update:
-    - "test.net"
-    - "foo.test.net"
+  hosts:
+    - name: "host_name2"
+      method: external
+      subdomains: 
+       - "subdomain"
