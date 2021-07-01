@@ -5,5 +5,5 @@ if ! [ $FREQUENCY -ge 1 -a $FREQUENCY -le 60 ]; then
     exit 1
 fi
 
-sed -i -e "s/5/$FREQUENCY/g" /etc/crontabs/root
+sed -i -e "s/\/\d*\s\*/\/$FREQUENCY \*/g" /etc/crontabs/root
 echo Successfully set script to run every $FREQUENCY minutes
