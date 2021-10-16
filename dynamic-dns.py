@@ -20,6 +20,7 @@ def linode_api_check(API_KEY, HOST_KEY):
   headers = {"Authorization": "Bearer {0}".format(API_KEY)}
 
   storage = requests.get("https://api.linode.com/v4/linode/instances/{0}/ips".format(HOST_KEY), headers=headers)
+  log_print("URL being checked against: LinodeAPI")
   return(storage.json()["ipv4"]["public"][0]["address"])
   #ipv6: storage.json()["ipv6"]["slaac"]["address"]
 
@@ -93,13 +94,14 @@ def main():
     zone = client.loadZone(domain)
 
     for host in config_file[domain]['hosts']:
+      log_print("Checking subdomains for host: {}".format(host["name"]))
+      my_ip = get_ip(host)
       for x in host["subdomains"]:
         try:
           if x == "@":
             host["record"] = zone.loadRecord(domain, 'A')
           else:
             host["record"] = zone.loadRecord(x, 'A')
-          my_ip = get_ip(host)
           result = check_ip(my_ip, host["record"])
           if result['matches'] is False:
             if not config_file[domain]["test"]:
