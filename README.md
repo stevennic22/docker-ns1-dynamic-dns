@@ -1,3 +1,5 @@
+# NO LONGER MAINTAINED IN FAVOR OF: [stevennic22/docker-go-ns1-dynamic-dns](https://github.com/stevennic22/docker-go-ns1-dynamic-dns)
+
 # Docker NS1 Dynamic DNS
 This updates DNS records in NS1 with the current IP (from [ipify.org](https://www.ipify.org)) every 5 minutes. The script runs under `cron` inside a lightweight Alpine-based Docker container.
 
